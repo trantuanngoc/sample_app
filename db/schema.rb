@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_08_14_080333) do
+=======
+ActiveRecord::Schema.define(version: 2020_08_11_092341) do
+>>>>>>> Implement advanced login
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -19,7 +23,10 @@ ActiveRecord::Schema.define(version: 2020_08_14_080333) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "remember_digest"
+<<<<<<< HEAD
     t.boolean "admin"
+=======
+>>>>>>> Implement advanced login
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
