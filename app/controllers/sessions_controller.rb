@@ -3,9 +3,14 @@ class SessionsController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       forwarding_url = session[:forwarding_url]
+=======
+    user= User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+>>>>>>> Update indent
       reset_session
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
