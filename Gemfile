@@ -5,6 +5,9 @@ ruby '2.5.5'
 gem 'bootstrap-sass', '3.4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'bcrypt',         '3.1.13'
+gem 'faker',          '2.11.0'
+gem 'will_paginate',           '3.3.0'
+gem 'bootstrap-will_paginate', '1.0.0'
 gem 'rails-controller-testing'
 
 # Use Puma as the app server
