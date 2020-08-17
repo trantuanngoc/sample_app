@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user= User.find_by(email: params[:session][:email].downcase)
+    user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       forwarding_url = session[:forwarding_url]
       reset_session
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to forwarding_url || user
     else
       flash.now[:danger]='Invalid email/password'
-      render 'new'
+      render :new
     end
   end
 
