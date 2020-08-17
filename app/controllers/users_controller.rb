@@ -8,11 +8,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user=User.new
+    @user = User.new
   end
 
   def show
-    @user=User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def create
@@ -22,7 +22,21 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
-      render 'new'
+      render :edit
+    end
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render :edit
     end
   end
 
@@ -31,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user=User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.update(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -41,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.find_by(id: params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
@@ -63,7 +77,7 @@ class UsersController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
