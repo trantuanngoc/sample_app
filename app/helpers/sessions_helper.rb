@@ -23,14 +23,11 @@ module SessionsHelper
         @current_user = user
       end
     end
-<<<<<<< HEAD
   end
 
   # Returns true if the given user is the current user.
   def current_user?(user)
     user && user == current_user
-=======
->>>>>>> Update indent
   end
 
   # Returns true if the given user is the current user.
