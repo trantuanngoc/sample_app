@@ -48,7 +48,6 @@ class User < ApplicationRecord
       UserMailer.account_activation(self).deliver_now
     end
 
-<<<<<<< HEAD
     # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
@@ -78,18 +77,4 @@ class User < ApplicationRecord
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
   end
-=======
-    private
-
-    # Converts email to all lower-case.
-    def downcase_email
-      self.email = email.downcase
-    end
-
-    # Creates and assigns the activation token and digest.
-    def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
->>>>>>> master
 end
