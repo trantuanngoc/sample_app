@@ -30,21 +30,9 @@ module SessionsHelper
     user && user == current_user
   end
 
-  # Returns true if the given user is the current user.
-  def current_user?(user)
-    user && user == current_user
-  end
-
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     current_user
-  end
-
-  # Forgets a persistent session.
-  def forget(user)
-    user.forget
-    cookies.delete(:user_id)
-    cookies.delete(:remember_token)
   end
 
   # Forgets a persistent session.
