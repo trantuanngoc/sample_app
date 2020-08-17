@@ -38,7 +38,6 @@ module SessionsHelper
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     current_user
-<<<<<<< HEAD
   end
 
   # Forgets a persistent session.
@@ -46,8 +45,6 @@ module SessionsHelper
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
-=======
->>>>>>> Update indent
   end
 
   # Forgets a persistent session.
